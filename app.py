@@ -4,9 +4,6 @@ from database import load_data
 app = Flask(__name__)
 
 
-
-
-
 @app.route("/")
 def hello_jovian():
     jobs = load_data()
@@ -17,7 +14,8 @@ def hello_jovian():
 
 @app.route("/api/jobs")
 def list_jobs():
-    return jsonify(load_data())
+    jobs = load_data()
+    return jsonify(jobs)
 
 
 if __name__ == '__main__':
