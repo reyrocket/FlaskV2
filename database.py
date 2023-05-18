@@ -8,6 +8,7 @@ def configure():
     load_dotenv()
 
 
+configure()
 conn = f'mysql+pymysql://{os.getenv("USER")}:{os.getenv("PASSWORD")}@aws.connect.psdb.cloud/flaskv2'
 
 engine = create_engine(conn, connect_args={
