@@ -1,9 +1,14 @@
-from sqlalchemy import create_engine, text
 import os
 
-x = os.environ.get('data_username')
+from sqlalchemy import create_engine, text
+from dotenv import load_dotenv
 
-conn = 'mysql+pymysql://yafmhhf3jodtvr1g73tv:pscale_pw_FKZLmTLByfxOk1bXcd3CJ4P3zgydD31YSMCn6yvoOEN@aws.connect.psdb.cloud/flaskv2'
+
+def configure():
+    load_dotenv()
+
+
+conn = f'mysql+pymysql://{os.getenv("USER")}:{os.getenv("PASSWORD")}@aws.connect.psdb.cloud/flaskv2'
 
 engine = create_engine(conn, connect_args={
     'ssl': {
