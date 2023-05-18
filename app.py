@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from database import load_data
+from database import load_data, ljfdb
 
 app = Flask(__name__)
 
@@ -16,6 +16,12 @@ def hello_jovian():
 def list_jobs():
     jobs = load_data()
     return jsonify(jobs)
+
+
+@app.route("/jobs/<id>")
+def display(id):
+    job = ljfdb(id)
+    return (job)
 
 
 if __name__ == '__main__':
