@@ -1,6 +1,5 @@
 # Byte-compiled / optimized / DLL files
-FlaskV2/
-*.py~
+creds.py
 __pycache__/
 *.py[cod]
 *$py.class
