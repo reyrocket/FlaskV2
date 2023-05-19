@@ -1,7 +1,6 @@
 # Byte-compiled / optimized / DLL files
 FlaskV2/
-creds.py
-.gitignore
+*.py~
 __pycache__/
 *.py[cod]
 *$py.class

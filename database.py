@@ -1,9 +1,9 @@
 from creds import USERNAME, PASSWORD
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
-from sqlalchemy import exc
-from sqlalchemy import event
-from sqlalchemy import select
+# from sqlalchemy import exc
+# from sqlalchemy import event
+# from sqlalchemy import select
 
 conn = f'mysql+pymysql://{USERNAME}:{PASSWORD}@aws.connect.psdb.cloud/flaskv2'
 some_engine = create_engine(conn, echo_pool=True, pool_size=7200, pool_recycle=3600, connect_args={

@@ -21,7 +21,7 @@ def list_jobs():
 @app.route("/jobs/<id>")
 def display(id):
     job = ljfdb(id)
-    return (job)
+    return job
 
 
 if __name__ == '__main__':
