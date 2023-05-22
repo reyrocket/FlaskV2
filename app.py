@@ -7,8 +7,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello_jovian():
     jobs = load_data()
-    return render_template('home.html',
-                           jobs=jobs)
+    return render_template('home.html', jobs=jobs)
 
 
 @app.route("/api/jobs")
@@ -23,8 +22,7 @@ def display(id):
     if not job:
         return "Not Found", 404
 
-    return render_template('jobpage.html',
-                           job=job)
+    return render_template('jobpage.html', job=job, isinstance=isinstance)
 
 
 if __name__ == '__main__':

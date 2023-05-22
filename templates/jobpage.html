@@ -18,13 +18,22 @@
     <p class="lead">{{job.location}}</p>
 
     <h4>Salary</h4>
-    <p>{{job.currency}{job.salary}}</p>
+    <p>{{job.currency}}{{job.salary}}</p>
 
     <h4>Responsibilities</h4>
-    <p>{{job.responsibities}}</p>
+        <ul>
+            {% for line in job.responsibilities.split(".") %}
+            <li>{{line}}.</li>
+            {% endfor %}
+        </ul>
 
-    <h4>Requirements</h4>
-    <p>{{job.requirements}}</p>
+    <h4 class="mt-5">Requirements</h4>
+            <ol>
+            {% for line in job.requirements.split(".") %}
+            <li>{{line}}.</li>
+            {% endfor %}
+        </ol>
+
 
 </div>
 {% include 'footer.html' %}
