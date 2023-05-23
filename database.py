@@ -33,3 +33,20 @@ def ljfdb(id):
                 return None
             else:
                 return dict(id=idd, title=title, location=location, salary=salary, currency=currency, responsibilities=responsibilities, requirements=requirements)
+
+
+def add_application_to_db(job_id, data):
+    with some_engine.connect() as connection:
+        query = text("insert into applications (job_id, full_name, email, linkedin_url, education, work_experience, resume_url) values (:job_id, :full_name, :email, :linkedin_url, :education, :work_experience, :resume_url)")
+
+        connection.execute(query, {
+            "job_id": job_id,
+            "full_name": data['full_name'],
+            "email": data['email'],
+            "linkedin_url": data['linkedin_url'],
+            "education": data['education'],
+            "work_experience": data['work_experience'],
+            "resume_url": data['resume_url']
+        })
+
+
