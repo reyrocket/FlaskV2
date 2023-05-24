@@ -2,18 +2,19 @@
 <html lang="en">
 <body>
 <h4 class="mt-4">Application Form</h4>
-<form method="post" action="/job/{{job['id']}}/apply">
+<form id="demo-form" method="post" action="/job/{{job['id']}}/apply">
+ <script src="https://www.google.com/recaptcha/api.js"></script>
     <div class="mb-5">
     <label class="mt-4">Full Name: </label><br>
-    <input type="text" name="full_name" placeholder="Bruce Wayne"><br>
+    <input type="text" name="full_name" placeholder="Bruce Wayne" required><br>
     <label class="mt-4">Email</label><br>
-    <input type="text" name="email" placeholder="bruce.wayne@gmail.com"><br>
+    <input type="email" name="email" placeholder="bruce.wayne@gmail.com" required><br>
     <label class="mt-4">LinkedIn URL</label><br>
-    <input type="text" name="linkedin_url" placeholder="https://linked.com/in/brucewayne">
+    <input type="url" name="linkedin_url" placeholder="https://linked.com/in/brucewayne">
     </div>
     <div>
     <label class="mt-4">Education: </label><br>
-    <textarea name="education"></textarea><br>
+    <textarea name="education" required ></textarea><br>
     </div>
     <div>
     <label class="mt-4">Work Experience: </label><br>
@@ -21,9 +22,14 @@
     </div>
     <div>
         <label class="mt-4">Resume URL</label><br>
-    <input type="text" name="resume_url"><br>
+    <input class="mb-4" type="url" name="resume_url" required><br>
 </div>
-    <input class="btn btn-outline-primary float-right align-middle" type="submit" value="Submit">
+   <input data-sitekey="{{key}}" data-callback='onSubmit' data-action='submit' class="g-recaptcha btn btn-outline-primary float-right align-middle" type="submit" value="Submit">
+     <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
 </form>
 </body>
 </html>
