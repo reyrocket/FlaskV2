@@ -3,8 +3,6 @@
 <body>
 <h4 class="mt-4">Application Form</h4>
 <form id="demo-form" method="post" action="/job/{{job['id']}}/apply">
- <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LfIfzUmAAAAACTUgOOSD-k7KE-tIr77TvllKe0k"></script>
     <div class="mb-5">
     <label class="mt-4">Full Name: </label><br>
     <input type="text" name="full_name" placeholder="Bruce Wayne" required><br>
@@ -25,7 +23,7 @@
         <label class="mt-4">Resume URL</label><br>
     <input class="mb-4" type="url" name="resume_url" required><br>
 </div>
-   <input data-sitekey="{{key}}" data-callback='onSubmit' data-action='submit' class="g-recaptcha btn btn-outline-primary float-right align-middle" type="submit" value="Submit">
+    <button data-sitekey="{{sitekey}}" data-callback='onSubmit' data-action='submit' class="btn btn-outline-primary float-right align-middle" type="submit" value="Submit">Submit</button>
      <script>
    function onSubmit(token) {
      document.getElementById("demo-form").submit();
