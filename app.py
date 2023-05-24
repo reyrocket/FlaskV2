@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from database import load_data, ljfdb, add_application_to_db
-from creds import sitekey, key_recaptcha, secret_key_recaptcha
+from creds import sitekey, key_recaptcha, secret_key_recaptcha, token
 
 app = Flask(__name__)
 
@@ -23,7 +23,7 @@ def display(id):
     if not job:
         return "Not Found", 404
 
-    return render_template('jobpage.html', key=key_recaptcha, secret=secret_key_recaptcha, job=job, sitekey=sitekey)
+    return render_template('jobpage.html', token=token, key=key_recaptcha, secret=secret_key_recaptcha, job=job, sitekey=sitekey)
 
 @app.route("/job/<id>/apply", methods=['post'])
 def apply(id):
